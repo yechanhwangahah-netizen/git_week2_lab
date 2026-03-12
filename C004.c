@@ -133,9 +133,28 @@ void findClasses(char* name, struct st_class* c[], int csize){
 int addNewClass(struct st_class* c[], int csize){
 // Caution : Don't allow the duplicate class code.
 // You must complete this function.
+struct st_class*p;
+int code;
+	
 
-	struct st_class* p = (struct st_class*)malloc(sizeof(struct st_class));
+while(1){
+	int d=0;
+	printf("code number:");
+	scanf("%d",&code);
 
+	for(int i=0; i<csize; i++){
+		if(c[i] ->code ==code){
+			printf("retry\n");
+			d=1;
+			break;
+		}
+	}
+	if(d==0){
+		break;
+	}
+}
+p = (struct st_class*)malloc(sizeof(struct st_class));
+p -> code = code;
 	printf(">> code number > ");
 	scanf("%d", &(p->code));
 	printf(">> class name > ");
