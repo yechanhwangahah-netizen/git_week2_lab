@@ -173,10 +173,18 @@ void editClass(struct st_class* c[], int csize){
 	int code;
 	printf(">> Enter a code of class > ");
 	scanf("%d", &code);
-
 	
 	// You must complete this section.
 
+	for(int i=0; i<csize; i++){
+		if(c[i] -> code ==code){
+			p = c[i];
+			break;
+		}
+	}
+	if(p==NULL){
+		return ;
+	}
 
 	
 	printf("> Current: [%d] %s [credits %d - %s]\n",p->code, p->name, p->unit, kname[p->grading-1]);
