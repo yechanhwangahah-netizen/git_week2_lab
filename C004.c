@@ -203,19 +203,69 @@ void editClass(struct st_class* c[], int csize){
 // You must make all these functions.
 
 int applyMyClasses(int my[], int msize, struct st_class* c[], int csize){
-
-
-
 	
-	return 0;
+	while(1){
+		int code;
+		printf("enter class code:");
+		scanf("%d",&code);
+
+		int id= -1;
+		for(int i=0; i<csize; i++){
+			if(c[i]->code ==code){
+				id=i;
+				break;
+			}
+			if(id==-1){
+				printf("No such code of class\n");
+			}
+			else{
+				int d=0;
+				for(int i=0; i<msize; i++){
+					if(my[i]==code){
+						d=1;
+						break;
+					}
+					if(d){
+						printf("already appied\n");
+					}
+					else{
+						my[msize++]=code;
+						printf("%d %s credit %d - %s\n", c[id]->code, c[id]->name, c[id]->unit,kname[c[id]->grading-1]);
+					}
+				}
+			
+	}
+
+int more;
+        printf(">> Add more?(1:Yes 2:No) > ");
+        scanf("%d", &more);
+        if(more != 1) break;
+    }
+    return msize;
 }
 
-void printMyClasses(int my[], int msize, struct st_class* c[], int csize){
+void printMyClasses(int my[], int msize, struct st_class* c[], int csize) {
 
+    int total = 0;
+    for(int i=0; i<msize; i++){
+        int code = my[i];
+        struct st_class* p = NULL;
 
-	
+        for(int j=0; j<csize; j++){
+            if(c[j]->code == code){
+                p = c[j];
+                break;
+            }
+        }
+
+        printf("%d. [%d] %s [credit %d - %s]\n", i+1, p->code, p->name, p->unit, kname[p->grading-1]);
+        total += p->unit;
+    }
+    printf("All : %d credits\n", total);
 
 }
+
+
 
 void saveMyClass(int my[], int msize, struct st_class* c[], int csize){
 
