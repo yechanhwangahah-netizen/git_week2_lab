@@ -11,7 +11,7 @@ struct st_class{
 	int grading;	// grading (1:A+~F, 2:P/F)
 };
 
-char kname[2][10] = {"A+~F", "P/F"}; // String for grading
+char kname[2][10];
 
 // Functions provided
 int loadData(struct st_class* c[]); // Load all class list from data file.

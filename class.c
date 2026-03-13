@@ -1,4 +1,5 @@
 #include "class.h"
+char kname[2][10] = {"A+~F", "P/F"};
 
 
 int loadData(struct st_class* c[]){
